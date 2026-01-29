@@ -197,8 +197,8 @@ pre{
 <body>
 <div class="app">
 
-<h1>TRANS PAYROLL</h1>
-<div class="subtitle">Sistem hitung gaji duty • otomatis • rapi</div>
+<h1>TRANS GAJIAN</h1>
+<div class="subtitle">Silahkan Masukkan Data gaji</div>
 
 <span class="badge">DATA PETUGAS</span>
 
@@ -328,9 +328,11 @@ async function hitungGaji(){
 Nama : ${data.employee.nama}
 Jabatan : ${data.employee.jabatan}
 Total Duty : ${data.total_jam} jam
-Gaji Jabatan : ${data.gaji_jabatan.toLocaleString('id-ID')}
-Gaji Jam : ${data.gaji_jam.toLocaleString('id-ID')}
-TOTAL GAJI : ${data.total_gaji.toLocaleString('id-ID')}
+Gaji Pokok : ${data.gaji_jabatan.toLocaleString('id-ID')}
+Total Gaji per Jam : ${data.gaji_jam.toLocaleString('id-ID')}
+======================
+**TOTAL GAJI : ${data.total_gaji.toLocaleString('id-ID')}**
+======================
 
 ${mention}`;
 }
@@ -345,7 +347,7 @@ function copyText(){
 
 function tambahPetugas(){
   const nama = prompt('Nama petugas');
-  const jabatan = prompt('Jabatan');
+  const jabatan = prompt('Jabatan\n === List === \n 1. ceo trans \n 2. wakil trans \n 3. supervisor \n 4. senior \n 5. junior \n 6. magang');
   if(!nama||!jabatan) return;
 
   fetch(API_PRIVATE+'/employees',{
